@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/pages/manage_products.dart';
+import 'package:shop/pages/orders_page.dart';
 import 'package:shop/widgets/drawer_item.dart';
 
 class ShopDrawer extends StatelessWidget {
@@ -34,7 +35,7 @@ class ShopDrawer extends StatelessWidget {
           const DrawerItem(
             icon: Icons.credit_card,
             text: 'Orders',
-            route: "/",
+            route: OrderPage.route,
           ),
           const DrawerItem(
             icon: Icons.edit,
