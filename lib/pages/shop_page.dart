@@ -1,8 +1,10 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/widgets/shop_drawer.dart';
 import 'package:shop/widgets/shop_product.dart';
 
+import '../domain/app_state.dart';
 import '../domain/product.dart';
 
 class ShopPage extends StatelessWidget {
@@ -10,6 +12,7 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var products = Provider.of<AppState>(context).products;
     return Scaffold(
       drawer: const ShopDrawer(),
       appBar: AppBar(
@@ -17,16 +20,15 @@ class ShopPage extends StatelessWidget {
         actions: [
           PopupMenuButton(
               itemBuilder: (context) => const [
-                PopupMenuItem(
-                  child: Text("Only Favorites"),
-                  value: 1,
-                ),
-                PopupMenuItem(
-                  child: Text("Show All"),
-                  value: 2,
-                )
-              ]
-          ),
+                    PopupMenuItem(
+                      child: Text("Only Favorites"),
+                      value: 1,
+                    ),
+                    PopupMenuItem(
+                      child: Text("Show All"),
+                      value: 2,
+                    )
+                  ]),
           IconButton(
             onPressed: () {},
             icon: Badge(
@@ -39,11 +41,10 @@ class ShopPage extends StatelessWidget {
       body: GridView.count(
         crossAxisCount: 2,
         children: List.generate(
-          5,
+          products.length,
           (index) {
             return ShopProduct(
-              product: Product("name", 23, "test",
-                  "https://www.voicy.network/Content/Clips/Images/02c26932-2a2f-4fa8-921e-b5dd6b6065a9-small.png"),
+              product: products[index],
             );
           },
         ),
