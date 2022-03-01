@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop/domain/app_state.dart';
 import 'package:shop/domain/product.dart';
 
 class ShopProduct extends StatelessWidget {
   final Product product;
+  final int index;
 
-  const ShopProduct({Key? key, required this.product}) : super(key: key);
+  const ShopProduct({Key? key,required this.index, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +20,31 @@ class ShopProduct extends StatelessWidget {
           color: const Color.fromRGBO(0, 0, 0, 0.7),
           height: 40,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Icon(Icons.favorite_border, color: Colors.orange),
-              Text(
-                product.name,
-                style: const TextStyle(color: Colors.white),
+              IconButton(
+                alignment: Alignment.centerLeft,
+                icon: Icon(
+                  product.favourite ? Icons.favorite : Icons.favorite_border,
+                  color: Colors.orange,
+                ),
+                onPressed: () {
+                  Provider.of<AppState>(context, listen: false).favoriteProduct(index);
+                },
               ),
-              const Icon(
-                Icons.shopping_cart,
-                color: Colors.orange,
+              Flexible(
+                child: Text(
+                  product.name,
+                  style: const TextStyle(color: Colors.white),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  color: Colors.orange,
+                ),
+                onPressed: () {},
               )
             ],
           ),

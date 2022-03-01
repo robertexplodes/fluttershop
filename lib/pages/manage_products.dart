@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/pages/edit_product.dart';
 import 'package:shop/widgets/shop_drawer.dart';
 
 import '../domain/app_state.dart';
@@ -33,7 +34,16 @@ class ManageProductsPage extends StatelessWidget {
             title: Text(products[index].name),
             trailing: Row(
               children: [
-                IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => EditProduct(index: index),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.edit),
+                ),
                 IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
               ],
               mainAxisSize: MainAxisSize.min,

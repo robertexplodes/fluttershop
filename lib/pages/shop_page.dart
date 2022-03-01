@@ -5,7 +5,6 @@ import 'package:shop/widgets/shop_drawer.dart';
 import 'package:shop/widgets/shop_product.dart';
 
 import '../domain/app_state.dart';
-import '../domain/product.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({Key? key}) : super(key: key);
@@ -19,16 +18,17 @@ class ShopPage extends StatelessWidget {
         title: const Text('Products'),
         actions: [
           PopupMenuButton(
-              itemBuilder: (context) => const [
-                    PopupMenuItem(
-                      child: Text("Only Favorites"),
-                      value: 1,
-                    ),
-                    PopupMenuItem(
-                      child: Text("Show All"),
-                      value: 2,
-                    )
-                  ]),
+            itemBuilder: (context) => const [
+              PopupMenuItem(
+                child: Text("Only Favorites"),
+                value: 1,
+              ),
+              PopupMenuItem(
+                child: Text("Show All"),
+                value: 2,
+              )
+            ],
+          ),
           IconButton(
             onPressed: () {},
             icon: Badge(
@@ -44,6 +44,7 @@ class ShopPage extends StatelessWidget {
           products.length,
           (index) {
             return ShopProduct(
+              index: index,
               product: products[index],
             );
           },
