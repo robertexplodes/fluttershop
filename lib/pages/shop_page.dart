@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/pages/cart_page.dart';
 import 'package:shop/pages/product_detail.dart';
 import 'package:shop/widgets/shop_drawer.dart';
 import 'package:shop/widgets/shop_product.dart';
@@ -20,12 +21,12 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-
   var showFavourites = false;
 
   @override
   Widget build(BuildContext context) {
-    var products = Provider.of<AppState>(context).filterByFavourite(showFavourites);
+    var products =
+        Provider.of<AppState>(context).filterByFavourite(showFavourites);
     return Scaffold(
       drawer: const ShopDrawer(),
       appBar: AppBar(
@@ -33,12 +34,12 @@ class _ShopPageState extends State<ShopPage> {
         actions: [
           PopupMenuButton(
             onSelected: (value) {
-              if(value == null) return;
-              if(value == FilterOptions.favorites) {
+              if (value == null) return;
+              if (value == FilterOptions.favorites) {
                 setState(() {
                   showFavourites = true;
                 });
-              } else if(value == FilterOptions.all) {
+              } else if (value == FilterOptions.all) {
                 setState(() {
                   showFavourites = false;
                 });
@@ -56,9 +57,11 @@ class _ShopPageState extends State<ShopPage> {
             ],
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const CartPage()),
+            ),
             icon: Badge(
-              badgeContent: Text('3'),
+              badgeContent: Text(Provider.of<AppState>(context).cartLength.toString()),
               child: Icon(Icons.shopping_cart),
             ),
           ),

@@ -7,7 +7,8 @@ class ShopProduct extends StatelessWidget {
   final Product product;
   final int index;
 
-  const ShopProduct({Key? key,required this.index, required this.product}) : super(key: key);
+  const ShopProduct({Key? key, required this.index, required this.product})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,8 @@ class ShopProduct extends StatelessWidget {
                   color: Colors.orange,
                 ),
                 onPressed: () {
-                  Provider.of<AppState>(context, listen: false).favoriteProduct(index);
+                  Provider.of<AppState>(context, listen: false)
+                      .favoriteProduct(index);
                 },
               ),
               Flexible(
@@ -44,7 +46,9 @@ class ShopProduct extends StatelessWidget {
                   Icons.shopping_cart,
                   color: Colors.orange,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  handleAddToCart(context);
+                },
               )
             ],
           ),
@@ -59,6 +63,24 @@ class ShopProduct extends StatelessWidget {
           image: NetworkImage(product.imageURL),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+
+  void handleAddToCart(BuildContext context) {
+    Provider.of<AppState>(context, listen: false)
+        .addToCart(product);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        action: SnackBarAction(
+          label: 'UNDO',
+          onPressed: () {
+            Provider.of<AppState>(context, listen: false)
+                .removeFromCart(product);
+          },
+        ),
+        content: Text('${product.name} added.',),
       ),
     );
   }
