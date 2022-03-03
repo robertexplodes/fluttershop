@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c9a5127-9671-4e72-a59b-a7cdee5fc9e1" name="Default Changelist" comment="refactoring">
-      <change afterPath="$PROJECT_DIR$/lib/domain/order.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/domain/provider/order_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/order_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="2c9a5127-9671-4e72-a59b-a7cdee5fc9e1" name="Default Changelist" comment="1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/provider/cart_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/provider/cart_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/cart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cart_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/orders_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/orders_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/order_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/order_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +73,7 @@
       <updated>1646038272889</updated>
       <workItem from="1646233607147" duration="383000" />
       <workItem from="1646290615920" duration="4711000" />
-      <workItem from="1646295400546" duration="6612000" />
+      <workItem from="1646295400546" duration="6874000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1646120439292</created>
@@ -143,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646299973123</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1.0">
+      <created>1646302185836</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1646302185836</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +164,7 @@
     <MESSAGE value="filter favourites" />
     <MESSAGE value="shopping cart works" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0" />
   </component>
 </project>

@@ -21,7 +21,7 @@ class OrderWidget extends StatelessWidget {
                 child: Text(
                   '€ ${order.total}',
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
               ),
               Container(
@@ -34,19 +34,32 @@ class OrderWidget extends StatelessWidget {
         expanded: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-              children: List.generate(order.products.length, (index) {
-            return Row(children: [
-              Text(
-                order.products[index].name,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              const Spacer(),
-              Text(' ${order.products[index].amount}x ', style: TextStyle(fontSize: 16),),
-              Text('€ ${order.products[index].price}', style: TextStyle(fontSize: 16),),
-            ]);
-          })),
+            children: List.generate(
+              order.products.length,
+              (index) {
+                return Row(
+                  children: [
+                    Text(
+                      order.products[index].name,
+                      style:
+                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    const Spacer(),
+                    Text(
+                      ' ${order.products[index].amount}x ',
+                      style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                    Text(
+                      '€ ${order.products[index].price}',
+                      style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
         ),
-        collapsed: SizedBox.shrink(),
+        collapsed: const SizedBox.shrink(),
       ),
     );
   }
