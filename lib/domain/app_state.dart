@@ -13,6 +13,14 @@ class AppState with ChangeNotifier {
         "https://banner2.cleanpng.com/20180131/afq/kisspng-whopper-hamburger-cheeseburger-burger-king-premium-fast-food-burger-5a725b35edda78.0012443215174438939743.jpg"),
   ];
 
+  List<Product> filterByFavourite(bool isFavourite) {
+    if(isFavourite) {
+      return products.where((product) => product.favourite).toList();
+    } else {
+      return products;
+    }
+  }
+
   void favoriteProduct(int index) {
     products[index].favourite = !products[index].favourite;
     notifyListeners();

@@ -7,26 +7,51 @@ import 'package:shop/widgets/shop_product.dart';
 
 import '../domain/app_state.dart';
 
-class ShopPage extends StatelessWidget {
+enum FilterOptions {
+  favorites,
+  all,
+}
+
+class ShopPage extends StatefulWidget {
   const ShopPage({Key? key}) : super(key: key);
 
   @override
+  State<ShopPage> createState() => _ShopPageState();
+}
+
+class _ShopPageState extends State<ShopPage> {
+
+  var showFavourites = false;
+
+  @override
   Widget build(BuildContext context) {
-    var products = Provider.of<AppState>(context).products;
+    var products = Provider.of<AppState>(context).filterByFavourite(showFavourites);
     return Scaffold(
       drawer: const ShopDrawer(),
       appBar: AppBar(
         title: const Text('Products'),
         actions: [
           PopupMenuButton(
+            onSelected: (value) {
+              if(value == null) return;
+              if(value == FilterOptions.favorites) {
+                setState(() {
+                  showFavourites = true;
+                });
+              } else if(value == FilterOptions.all) {
+                setState(() {
+                  showFavourites = false;
+                });
+              }
+            },
             itemBuilder: (context) => const [
               PopupMenuItem(
                 child: Text("Only Favorites"),
-                value: 1,
+                value: FilterOptions.favorites,
               ),
               PopupMenuItem(
                 child: Text("Show All"),
-                value: 2,
+                value: FilterOptions.all,
               )
             ],
           ),
