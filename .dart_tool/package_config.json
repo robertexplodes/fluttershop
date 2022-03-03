@@ -50,6 +50,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "expandable",
+      "rootUri": "file:///C:/Programmieren/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///C:/Programmieren/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -70,6 +76,12 @@
     {
       "name": "flutter_test",
       "rootUri": "file:///C:/Programmieren/SDK/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///C:/Programmieren/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -176,7 +188,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-03-01T08:02:17.580626Z",
+  "generated": "2022-03-03T10:04:26.897949Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

@@ -4,9 +4,14 @@ import 'package:shop/domain/product.dart';
 class CartProvider with ChangeNotifier {
   List<Product> shoppingCart = [];
 
+  void clearCart() {
+    shoppingCart = [];
+    notifyListeners();
+  }
+
   void addToCart(Product product) {
     var item = shoppingCart.indexOf(product);
-    if(item == -1) {
+    if (item == -1) {
       product.amount = 1;
       shoppingCart.add(product);
     } else {
@@ -20,17 +25,17 @@ class CartProvider with ChangeNotifier {
   }
 
   double get totalPrice {
+    if (shoppingCart.isEmpty) return 0;
     return shoppingCart
         .map((product) => product.price * product.amount)
         .reduce((value, element) => value + element);
   }
 
-
   void removeFromCart(Product product) {
     var item = shoppingCart.indexOf(product);
-    if(item != -1) {
+    if (item != -1) {
       shoppingCart[item].amount--;
-      if(shoppingCart[item].amount == 0) {
+      if (shoppingCart[item].amount == 0) {
         shoppingCart.removeAt(item);
       }
     }

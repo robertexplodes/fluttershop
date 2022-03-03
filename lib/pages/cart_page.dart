@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/domain/order.dart';
+import 'package:shop/domain/provider/order_provider.dart';
 import 'package:shop/domain/provider/product_provider.dart';
 import 'package:shop/domain/product.dart';
 import 'package:shop/domain/provider/cart_provider.dart';
@@ -33,8 +35,13 @@ class CartPage extends StatelessWidget {
                   backgroundColor: Colors.blueAccent,
                 ),
                 TextButton(
-                  onPressed: () {},
-                  child: Text('Order now'),
+                  onPressed: () {
+                    var content = Provider.of<CartProvider>(context, listen: false).shoppingCart;
+                    Provider.of<CartProvider>(context, listen: false).clearCart();
+                    Provider.of<OrderProvider>(context, listen: false)
+                        .addOrder(Order(DateTime.now(), content));
+                  },
+                  child: const Text('Order now'),
                 ),
               ]),
             ),
