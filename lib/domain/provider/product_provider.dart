@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:shop/domain/product.dart';
 
-class AppState with ChangeNotifier {
+class ProductProvider with ChangeNotifier {
   List<Product> products = [
     Product("hamburger", 23, "test",
         "https://www.mcdonalds.at/wp-content/uploads/2021/09/web-neu-1500x1500-core-hamburger-1.png"),
@@ -12,29 +12,6 @@ class AppState with ChangeNotifier {
     Product("whopper", 23, "test",
         "https://banner2.cleanpng.com/20180131/afq/kisspng-whopper-hamburger-cheeseburger-burger-king-premium-fast-food-burger-5a725b35edda78.0012443215174438939743.jpg"),
   ];
-
-  List<Product> shoppingCart = [];
-
-  void addToCart(Product product) {
-    var item = shoppingCart.indexOf(product);
-    if(item == -1) {
-      product.amount = 1;
-      shoppingCart.add(product);
-    } else {
-      shoppingCart[item].amount++;
-    }
-    notifyListeners();
-  }
-
-  int get cartLength {
-    return shoppingCart.length;
-  }
-
-  double get totalPrice {
-    return shoppingCart
-        .map((product) => product.price * product.amount)
-        .reduce((value, element) => value + element);
-  }
 
   List<Product> filterByFavourite(bool isFavourite) {
     if(isFavourite) {
@@ -65,17 +42,6 @@ class AppState with ChangeNotifier {
 
   void deleteProduct(int index) {
     products.removeAt(index);
-    notifyListeners();
-  }
-
-  void removeFromCart(Product product) {
-    var item = shoppingCart.indexOf(product);
-    if(item != -1) {
-      shoppingCart[item].amount--;
-      if(shoppingCart[item].amount == 0) {
-        shoppingCart.removeAt(item);
-      }
-    }
     notifyListeners();
   }
 }

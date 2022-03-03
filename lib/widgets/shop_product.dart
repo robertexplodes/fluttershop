@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/domain/app_state.dart';
+import 'package:shop/domain/provider/product_provider.dart';
 import 'package:shop/domain/product.dart';
+import 'package:shop/domain/provider/cart_provider.dart';
+import 'package:shop/pages/cart_page.dart';
 
 class ShopProduct extends StatelessWidget {
   final Product product;
@@ -30,7 +32,7 @@ class ShopProduct extends StatelessWidget {
                   color: Colors.orange,
                 ),
                 onPressed: () {
-                  Provider.of<AppState>(context, listen: false)
+                  Provider.of<ProductProvider>(context, listen: false)
                       .favoriteProduct(index);
                 },
               ),
@@ -68,7 +70,7 @@ class ShopProduct extends StatelessWidget {
   }
 
   void handleAddToCart(BuildContext context) {
-    Provider.of<AppState>(context, listen: false)
+    Provider.of<CartProvider>(context, listen: false)
         .addToCart(product);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -76,7 +78,7 @@ class ShopProduct extends StatelessWidget {
         action: SnackBarAction(
           label: 'UNDO',
           onPressed: () {
-            Provider.of<AppState>(context, listen: false)
+            Provider.of<CartProvider>(context, listen: false)
                 .removeFromCart(product);
           },
         ),

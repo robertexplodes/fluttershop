@@ -1,12 +1,13 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/domain/provider/cart_provider.dart';
 import 'package:shop/pages/cart_page.dart';
 import 'package:shop/pages/product_detail.dart';
 import 'package:shop/widgets/shop_drawer.dart';
 import 'package:shop/widgets/shop_product.dart';
 
-import '../domain/app_state.dart';
+import '../domain/provider/product_provider.dart';
 
 enum FilterOptions {
   favorites,
@@ -26,7 +27,7 @@ class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
     var products =
-        Provider.of<AppState>(context).filterByFavourite(showFavourites);
+        Provider.of<ProductProvider>(context).filterByFavourite(showFavourites);
     return Scaffold(
       drawer: const ShopDrawer(),
       appBar: AppBar(
@@ -61,7 +62,7 @@ class _ShopPageState extends State<ShopPage> {
               MaterialPageRoute(builder: (context) => const CartPage()),
             ),
             icon: Badge(
-              badgeContent: Text(Provider.of<AppState>(context).cartLength.toString()),
+              badgeContent: Text(Provider.of<CartProvider>(context).cartLength.toString()),
               child: Icon(Icons.shopping_cart),
             ),
           ),

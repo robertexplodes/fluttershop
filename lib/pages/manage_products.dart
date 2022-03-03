@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/pages/edit_product.dart';
 import 'package:shop/widgets/shop_drawer.dart';
 
-import '../domain/app_state.dart';
+import '../domain/provider/product_provider.dart';
 
 class ManageProductsPage extends StatelessWidget {
   static const route = "/manage-products";
@@ -12,7 +12,7 @@ class ManageProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var products = Provider.of<AppState>(context).products;
+    var products = Provider.of<ProductProvider>(context).products;
     return Scaffold(
       drawer: const ShopDrawer(),
       appBar: AppBar(
@@ -50,7 +50,7 @@ class ManageProductsPage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    Provider.of<AppState>(context, listen: false).deleteProduct(index);
+                    Provider.of<ProductProvider>(context, listen: false).deleteProduct(index);
                   },
                   icon: const Icon(
                     Icons.delete,

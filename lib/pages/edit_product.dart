@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/domain/app_state.dart';
+import 'package:shop/domain/provider/product_provider.dart';
 import 'package:shop/domain/product.dart';
 
 class EditProduct extends StatefulWidget {
@@ -24,7 +24,7 @@ class _EditProductState extends State<EditProduct> {
   Widget build(BuildContext context) {
     Product? product;
     if (widget.index != null) {
-      product = Provider.of<AppState>(context).getByIndex(widget.index!);
+      product = Provider.of<ProductProvider>(context).getByIndex(widget.index!);
       nameController.text = product.name;
       priceController.text = product.price.toString();
       descriptionController.text = product.description;
@@ -120,12 +120,12 @@ class _EditProductState extends State<EditProduct> {
     _formKey.currentState!.validate();
     var price = double.parse(priceController.text);
     if (widget.index != null) {
-      Provider.of<AppState>(context, listen: false).updateProduct(
+      Provider.of<ProductProvider>(context, listen: false).updateProduct(
           widget.index!,
           Product(nameController.text, price,
               descriptionController.text, imageUrlController.text));
     } else {
-      Provider.of<AppState>(context, listen: false).addProduct(Product(
+      Provider.of<ProductProvider>(context, listen: false).addProduct(Product(
         nameController.text,
         price,
         descriptionController.text,

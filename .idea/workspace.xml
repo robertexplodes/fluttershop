@@ -4,31 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c9a5127-9671-4e72-a59b-a7cdee5fc9e1" name="Default Changelist" comment="filter favourites">
-      <change afterPath="$PROJECT_DIR$/lib/pages/cart_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/cart_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/638344882cf3ef13df36a6ba4cc663ca/kernel_snapshot.stamp" afterDir="false" />
+    <list default="true" id="2c9a5127-9671-4e72-a59b-a7cdee5fc9e1" name="Default Changelist" comment="shopping cart works">
+      <change afterPath="$PROJECT_DIR$/lib/domain/provider/cart_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/app_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/app_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/product.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/app_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/provider/app_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/cart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cart_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/edit_product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/edit_product.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/manage_products.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/manage_products.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/shop_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/shop_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/shop_product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/shop_product.dart" afterDir="false" />
     </list>
@@ -77,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Programmieren\FLutter\shop\lib\domain\provider" />
       <recent name="C:\Programmieren\FLutter\shop\assets\images" />
     </key>
   </component>
@@ -96,7 +80,7 @@
       <updated>1646038272889</updated>
       <workItem from="1646233607147" duration="383000" />
       <workItem from="1646290615920" duration="4711000" />
-      <workItem from="1646295400546" duration="3931000" />
+      <workItem from="1646295400546" duration="4445000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1646120439292</created>
@@ -140,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646294744396</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="shopping cart works">
+      <created>1646299417329</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1646299417329</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +155,7 @@
     <MESSAGE value="added editing page" />
     <MESSAGE value="edit products, detail page" />
     <MESSAGE value="filter favourites" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter favourites" />
+    <MESSAGE value="shopping cart works" />
+    <option name="LAST_COMMIT_MESSAGE" value="shopping cart works" />
   </component>
 </project>

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/domain/app_state.dart';
+import 'package:shop/domain/provider/product_provider.dart';
 import 'package:shop/domain/product.dart';
+import 'package:shop/domain/provider/cart_provider.dart';
 import 'package:shop/widgets/cart_item.dart';
 
 class CartPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Product> products = Provider.of<AppState>(context).shoppingCart;
+    List<Product> products = Provider.of<CartProvider>(context).shoppingCart;
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart'),
@@ -26,7 +27,7 @@ class CartPage extends StatelessWidget {
                 const Spacer(),
                 Chip(
                   label: Text(
-                    '€ ${Provider.of<AppState>(context).totalPrice}',
+                    '€ ${Provider.of<CartProvider>(context).totalPrice}',
                     style: const TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   backgroundColor: Colors.blueAccent,
