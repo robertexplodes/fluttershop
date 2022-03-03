@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/pages/product_detail.dart';
 import 'package:shop/widgets/shop_drawer.dart';
 import 'package:shop/widgets/shop_product.dart';
 
@@ -43,9 +44,16 @@ class ShopPage extends StatelessWidget {
         children: List.generate(
           products.length,
           (index) {
-            return ShopProduct(
-              index: index,
-              product: products[index],
+            return GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ProductDetail(product: products[index]),
+                ),
+              ),
+              child: ShopProduct(
+                index: index,
+                product: products[index],
+              ),
             );
           },
         ),

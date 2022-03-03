@@ -15,19 +15,29 @@ class EditProduct extends StatefulWidget {
 class _EditProductState extends State<EditProduct> {
   final _formKey = GlobalKey<FormState>();
 
+  var nameController = TextEditingController();
+  var priceController = TextEditingController();
+  var descriptionController = TextEditingController();
+  var imageUrlController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Product? product;
     if (widget.index != null) {
       product = Provider.of<AppState>(context).getByIndex(widget.index!);
+      nameController.text = product.name;
+      priceController.text = product.price.toString();
+      descriptionController.text = product.description;
+      imageUrlController.text = product.imageURL;
     }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edit'),
         actions: [
           IconButton(
             onPressed: () {
-              _formKey.currentState!.validate();
+              handleSave(context);
             },
             icon: const Icon(Icons.save),
           ),
@@ -44,25 +54,25 @@ class _EditProductState extends State<EditProduct> {
                   label: Text("name"),
                 ),
                 validator: validateText,
-                initialValue: product?.name,
                 textInputAction: TextInputAction.next,
+                controller: nameController,
               ),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text("price"),
                 ),
                 validator: validateNumber,
-                initialValue: product?.price.toString(),
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
+                controller: priceController,
               ),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text("description"),
                 ),
                 validator: validateText,
-                initialValue: product?.description,
                 textInputAction: TextInputAction.next,
+                controller: descriptionController,
               ),
               Container(
                 margin: const EdgeInsets.only(top: 20),
@@ -83,8 +93,8 @@ class _EditProductState extends State<EditProduct> {
                       margin: const EdgeInsets.only(right: 10),
                       child: product != null
                           ? Image(
-                              image: NetworkImage(product.imageURL),
-                            )
+                        image: NetworkImage(product.imageURL),
+                      )
                           : const Text('Enter a URL'),
                     ),
                     Expanded(
@@ -93,7 +103,7 @@ class _EditProductState extends State<EditProduct> {
                           label: Text("URL"),
                         ),
                         validator: validateText,
-                        initialValue: product?.imageURL,
+                        controller: imageUrlController,
                       ),
                     ),
                   ],
@@ -104,6 +114,25 @@ class _EditProductState extends State<EditProduct> {
         ),
       ),
     );
+  }
+
+  void handleSave(BuildContext context) {
+    _formKey.currentState!.validate();
+    var price = double.parse(priceController.text);
+    if (widget.index != null) {
+      Provider.of<AppState>(context, listen: false).updateProduct(
+          widget.index!,
+          Product(nameController.text, price,
+              descriptionController.text, imageUrlController.text));
+    } else {
+      Provider.of<AppState>(context, listen: false).addProduct(Product(
+        nameController.text,
+        price,
+        descriptionController.text,
+        imageUrlController.text,
+      ));
+    }
+    Navigator.of(context).pop();
   }
 
   String? validateText(String? value) {

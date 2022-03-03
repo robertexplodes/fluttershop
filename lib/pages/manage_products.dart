@@ -17,7 +17,11 @@ class ManageProductsPage extends StatelessWidget {
       drawer: const ShopDrawer(),
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+          IconButton(onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => EditProduct(),
+            ));
+          }, icon: const Icon(Icons.add)),
         ],
         title: const Text('Manage Products'),
       ),
@@ -42,9 +46,17 @@ class ManageProductsPage extends StatelessWidget {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.edit),
+                  icon: const Icon(Icons.edit, color: Colors.blue),
                 ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
+                IconButton(
+                  onPressed: () {
+                    Provider.of<AppState>(context, listen: false).deleteProduct(index);
+                  },
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  ),
+                ),
               ],
               mainAxisSize: MainAxisSize.min,
             ),
