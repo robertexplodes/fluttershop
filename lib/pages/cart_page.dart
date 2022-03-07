@@ -12,7 +12,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Product> products = Provider.of<CartProvider>(context).shoppingCart;
+    var products = Provider.of<CartProvider>(context).shoppingCart;
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart'),
@@ -36,8 +36,11 @@ class CartPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    var content = Provider.of<CartProvider>(context, listen: false).shoppingCart;
-                    Provider.of<CartProvider>(context, listen: false).clearCart();
+                    var content =
+                        Provider.of<CartProvider>(context, listen: false)
+                            .shoppingCart;
+                    Provider.of<CartProvider>(context, listen: false)
+                        .clearCart();
                     Provider.of<OrderProvider>(context, listen: false)
                         .addOrder(Order(DateTime.now(), content));
                   },
@@ -49,7 +52,7 @@ class CartPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
-                return CartItem(product: products[index]);
+                return CartItem(product: products[index], index: index);
               },
               itemCount: products.length,
             ),

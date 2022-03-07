@@ -70,8 +70,7 @@ class ShopProduct extends StatelessWidget {
   }
 
   void handleAddToCart(BuildContext context) {
-    Provider.of<CartProvider>(context, listen: false)
-        .addToCart(product);
+    Provider.of<CartProvider>(context, listen: false).addToCart(product);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 3),
@@ -79,10 +78,12 @@ class ShopProduct extends StatelessWidget {
           label: 'UNDO',
           onPressed: () {
             Provider.of<CartProvider>(context, listen: false)
-                .removeFromCart(product);
+                .removeProductFromCart(product);
           },
         ),
-        content: Text('${product.name} added.',),
+        content: Text(
+          '${product.name} added.',
+        ),
       ),
     );
   }
