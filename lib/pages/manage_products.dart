@@ -42,7 +42,7 @@ class ManageProductsPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => EditProduct(index: index),
+                        builder: (context) => EditProduct(productId: products[index].id),
                       ),
                     );
                   },
@@ -50,7 +50,7 @@ class ManageProductsPage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    Provider.of<ProductProvider>(context, listen: false).deleteProduct(index);
+                    Provider.of<ProductProvider>(context, listen: false).deleteProduct(products[index].id);
                   },
                   icon: const Icon(
                     Icons.delete,

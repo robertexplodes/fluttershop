@@ -4,9 +4,9 @@ import 'package:shop/domain/provider/product_provider.dart';
 import 'package:shop/domain/product.dart';
 
 class EditProduct extends StatefulWidget {
-  int? index;
+  int? productId;
 
-  EditProduct({Key? key, this.index}) : super(key: key);
+  EditProduct({Key? key, this.productId}) : super(key: key);
 
   @override
   _EditProductState createState() => _EditProductState();
@@ -23,8 +23,8 @@ class _EditProductState extends State<EditProduct> {
   @override
   Widget build(BuildContext context) {
     Product? product;
-    if (widget.index != null) {
-      product = Provider.of<ProductProvider>(context).getByIndex(widget.index!);
+    if (widget.productId != null) {
+      product = Provider.of<ProductProvider>(context).getById(widget.productId!);
       nameController.text = product.name;
       priceController.text = product.price.toString();
       descriptionController.text = product.description;
@@ -119,13 +119,13 @@ class _EditProductState extends State<EditProduct> {
   void handleSave(BuildContext context) {
     _formKey.currentState!.validate();
     var price = double.parse(priceController.text);
-    if (widget.index != null) {
+    if (widget.productId != null) {
       Provider.of<ProductProvider>(context, listen: false).updateProduct(
-          widget.index!,
-          Product(nameController.text, price,
+          Product(widget.productId!, nameController.text, price,
               descriptionController.text, imageUrlController.text));
     } else {
       Provider.of<ProductProvider>(context, listen: false).addProduct(Product(
+        Product.getNextId(),
         nameController.text,
         price,
         descriptionController.text,

@@ -31,11 +31,12 @@ class CartProvider with ChangeNotifier {
         .reduce((value, element) => value + element);
   }
 
-  void removeAllFromCart(int index) {
-    print(index);
-    if (index >= shoppingCart.length && index < 0) return;
-    shoppingCart.removeAt(index);
-    notifyListeners();
+  void removeAllFromCart(int id) {
+    var index = shoppingCart.indexWhere((element) => element.id == id);
+    if (index != -1) {
+      shoppingCart.removeAt(index);
+      notifyListeners();
+    }
   }
 
   void removeProductFromCart(Product product) {

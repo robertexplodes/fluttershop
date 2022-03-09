@@ -7,9 +7,8 @@ import 'package:shop/pages/cart_page.dart';
 
 class ShopProduct extends StatelessWidget {
   final Product product;
-  final int index;
 
-  const ShopProduct({Key? key, required this.index, required this.product})
+  const ShopProduct({Key? key, required this.product})
       : super(key: key);
 
   @override
@@ -33,7 +32,7 @@ class ShopProduct extends StatelessWidget {
                 ),
                 onPressed: () {
                   Provider.of<ProductProvider>(context, listen: false)
-                      .favoriteProduct(index);
+                      .favoriteProduct(product.id);
                 },
               ),
               Flexible(

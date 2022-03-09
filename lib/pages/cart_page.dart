@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/domain/order.dart';
 import 'package:shop/domain/provider/order_provider.dart';
-import 'package:shop/domain/provider/product_provider.dart';
-import 'package:shop/domain/product.dart';
 import 'package:shop/domain/provider/cart_provider.dart';
 import 'package:shop/widgets/cart_item.dart';
 
@@ -39,6 +37,9 @@ class CartPage extends StatelessWidget {
                     var content =
                         Provider.of<CartProvider>(context, listen: false)
                             .shoppingCart;
+                    if(content.isEmpty) {
+                      return;
+                    }
                     Provider.of<CartProvider>(context, listen: false)
                         .clearCart();
                     Provider.of<OrderProvider>(context, listen: false)
@@ -52,7 +53,7 @@ class CartPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
-                return CartItem(product: products[index], index: index);
+                return CartItem(product: products[index]);
               },
               itemCount: products.length,
             ),

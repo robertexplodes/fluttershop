@@ -5,25 +5,20 @@ class Product {
   String imageURL;
   int amount = 0;
   bool favourite = false;
+  int id;
+  static int _lastId = 1;
 
-  Product(this.name, this.price, this.description, this.imageURL);
+  Product(this.id, this.name, this.price, this.description, this.imageURL);
+
+  static int getNextId() {
+    return _lastId++;
+  }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Product &&
-          runtimeType == other.runtimeType &&
-          name == other.name &&
-          price == other.price &&
-          description == other.description &&
-          imageURL == other.imageURL &&
-          favourite == other.favourite;
+      other is Product && runtimeType == other.runtimeType && id == other.id;
 
   @override
-  int get hashCode =>
-      name.hashCode ^
-      price.hashCode ^
-      description.hashCode ^
-      imageURL.hashCode ^
-      favourite.hashCode;
+  int get hashCode => id.hashCode;
 }

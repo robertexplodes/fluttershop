@@ -80,7 +80,6 @@ class _ShopPageState extends State<ShopPage> {
                 ),
               ),
               child: ShopProduct(
-                index: index,
                 product: products[index],
               ),
             );
