@@ -14,7 +14,14 @@ class ProductDetail extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.network(product.imageURL),
+          Image.network(
+            product.imageURL,
+            errorBuilder: (context, error, stackTrace) {
+              return Center(
+                child: Image.asset("assets/images/404.jpg"),
+              );
+            },
+          ),
           Container(
             margin: const EdgeInsets.all(10),
             child: Text(

@@ -24,7 +24,8 @@ class _EditProductState extends State<EditProduct> {
   Widget build(BuildContext context) {
     Product? product;
     if (widget.productId != null) {
-      product = Provider.of<ProductProvider>(context).getById(widget.productId!);
+      product =
+          Provider.of<ProductProvider>(context).getById(widget.productId!);
       nameController.text = product.name;
       priceController.text = product.price.toString();
       descriptionController.text = product.description;
@@ -92,9 +93,14 @@ class _EditProductState extends State<EditProduct> {
                       ),
                       margin: const EdgeInsets.only(right: 10),
                       child: product != null
-                          ? Image(
-                        image: NetworkImage(product.imageURL),
-                      )
+                          ? Image.network(
+                              product.imageURL,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Center(
+                                  child: Image.asset("assets/images/404.jpg"),
+                                );
+                              },
+                            )
                           : const Text('Enter a URL'),
                     ),
                     Expanded(

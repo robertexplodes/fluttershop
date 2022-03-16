@@ -17,11 +17,13 @@ class ManageProductsPage extends StatelessWidget {
       drawer: const ShopDrawer(),
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => EditProduct(),
-            ));
-          }, icon: const Icon(Icons.add)),
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => EditProduct(),
+                ));
+              },
+              icon: const Icon(Icons.add)),
         ],
         title: const Text('Manage Products'),
       ),
@@ -29,11 +31,16 @@ class ManageProductsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             leading: CircleAvatar(
-              child: Image(
-                image: NetworkImage(products[index].imageURL),
+              backgroundColor: Colors.transparent,
+              child: Image.network(
+                products[index].imageURL,
+                errorBuilder: (context, error, stackTrace) {
+                  return Center(
+                    child: Image.asset("assets/images/404.jpg"),
+                  );
+                },
                 fit: BoxFit.cover,
               ),
-              backgroundColor: Colors.transparent,
             ),
             title: Text(products[index].name),
             trailing: Row(
@@ -42,7 +49,8 @@ class ManageProductsPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => EditProduct(productId: products[index].id),
+                        builder: (context) =>
+                            EditProduct(productId: products[index].id),
                       ),
                     );
                   },
@@ -50,7 +58,8 @@ class ManageProductsPage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    Provider.of<ProductProvider>(context, listen: false).deleteProduct(products[index].id);
+                    Provider.of<ProductProvider>(context, listen: false)
+                        .deleteProduct(products[index].id);
                   },
                   icon: const Icon(
                     Icons.delete,

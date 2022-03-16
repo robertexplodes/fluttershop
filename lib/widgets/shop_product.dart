@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/domain/provider/product_provider.dart';
@@ -8,8 +9,7 @@ import 'package:shop/pages/cart_page.dart';
 class ShopProduct extends StatelessWidget {
   final Product product;
 
-  const ShopProduct({Key? key, required this.product})
-      : super(key: key);
+  const ShopProduct({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +58,30 @@ class ShopProduct extends StatelessWidget {
       height: 190.0,
       width: MediaQuery.of(context).size.width - 100.0,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Colors.blue,
         image: DecorationImage(
-          image: NetworkImage(product.imageURL),
-          fit: BoxFit.cover,
-        ),
+          image: Image.network(
+            product.imageURL,
+            errorBuilder: (context, error, stackTrace) {
+              return Center(
+                child: Image.asset("assets/images/404.jpg"),
+              );
+            },
+          ).image,
+         ),
       ),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(5),
+      //   color: Colors.blue,
+      //   image: DecorationImage(
+      //     image: CachedNetworkImageProvider(
+      //       product.imageURL,
+      //       // imageUrl:product.imageURL,
+      //       // placeholder: (context, url) => const CircularProgressIndicator(color: Colors.blue),
+      //       // errorWidget: (context, url, error) => const Icon(Icons.error),
+      //     ),
+      //     fit: BoxFit.cover,
+      //   ),
+      // ),
     );
   }
 
